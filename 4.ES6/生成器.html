@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器</title>
+    <script>
+        // 生成器定义要加一个*
+        function* helloWorldGenerator() {
+            // 暂停执行的标志
+            yield 'hello';
+            yield 'world';
+            return 'ending';
+        }
+
+        var hw = helloWorldGenerator();
+        // 生成器调用要执行next方法
+        // 换言之，Generator函数是分段执行的，yield语句是暂停执行的标记，而next方法可以恢复执行。
+        hw.next()
+        // { value: 'hello', done: false }
+
+        hw.next()
+        // { value: 'world', done: false }
+
+        hw.next()
+        // { value: 'ending', done: true }
+
+        hw.next()
+        // { value: undefined, done: true }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+/* 清除内外边距 */
+* {
+    margin: 0;
+    padding: 0;
+}
+ body {
+     background-color: #f5f5f5;
+ }
+
+ a {
+     color: #333333;
+     text-decoration: none;
+ }
+
+ .box {
+     width: 298px;
+     height: 415px;
+     background-color: #ffffff;
+     /* 让块级盒子水平居中对齐 */
+     margin:100px auto;
+ }
+
+ /* 让图片宽度不超过盒子宽度 */
+ .box img {
+     width: 100%;
+ }
+
+ .review {
+     height: 70px;
+     font-size: 14px;
+     /* 因为没设置宽度，所以padding不会撑开盒子，此时若设置高度，贼会撑开盒子 */
+     padding: 0 28px;
+     margin-top: 30px;
+ }
+
+ .appraise {
+     font-size: 12px;
+     color: #b0b0b0;
+     margin-top: 20px;
+     padding: 0 28px;
+ }
+
+.info {
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 0 28px;
+}
+
+ /* 为了使产品名和价格在一行内，把标题转换为行内块元素 */
+ .info h4 {
+     display: inline-block;
+     /* 取消字体加粗 */
+     font-weight: 400;
+ }
+
+ .info span {
+     color: #ff6700;
+ }
+
+ .info em {
+     font-style: normal;
+     color: #ebe4e0;
+     margin: 0 6px 0 15px;
+ }

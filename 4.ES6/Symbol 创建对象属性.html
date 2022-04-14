@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol 创建对象属性</title>
+    <script>
+        //情况1：
+        let game = {
+            name: '俄罗斯方块',
+        };
+
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        };
+
+        game[methods.up] = function () {
+            console.log("aaaaa");
+        }
+
+        game[methods.down] = function () {
+            console.log('bbb');
+        }
+
+        console.log(game);
+        game[methods.down]();
+
+
+        // 情况2：
+        let youxi = {
+            name: '狼人杀',
+            [Symbol("say")]: function () {
+                console.log("发言")
+            },
+            [Symbol('zibao')]: function () {
+                console.log("我自爆狼身份")
+            }
+        }
+        // 方法一
+        const langrensha = Object.getOwnPropertySymbols(youxi);
+        console.log(langrensha)
+        youxi[langrensha[0]]();  //调用成功
+
+        // 方法二
+        const langrensha2 = Reflect.ownKeys(youxi);
+        console.log(langrensha2);
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+a {
+    /* 将元素显示模式从行内元素变为块元素 */
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-color: #55585a;
+    font-size: 14px;
+    color: #ffffff;
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 首行缩进2个字 */
+    /* text-indent: 2em; */
+    /* 实际开发中用要用px测量距离，更准确 */
+    padding-left: 30px;
+    /* 让文字行高等于盒子的高，就实现了垂直居中的效果 */
+    line-height: 40px;
+}
+
+/* 伪类链接选择器，鼠标位于链接上时变橙色 */
+a:hover {
+    background-color: #ff6700;
+}

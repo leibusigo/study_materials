@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+    <script>
+        let s = new Set(['1', '2', '3', '4', '1']);
+
+        // console.log(s);//1,2,3,4 相同的值在集合里只能有一个
+        // // 元素的个数
+        // console.log(s.size);
+        // // 添加元素
+        // s.add('5');
+        // // 删除元素
+        // s.delete('2');
+        // // 检测有没有该元素
+        // console.log(s.has('1'));
+        // // 清空集合
+        // console.log(s);
+
+        // 应用
+        let arr = [1, 2, 3, 3, 3, 4, 5, 2, 1];
+        // 1.数组去重
+        // let result = [...new Set(arr)];
+
+        // 2.交集
+        // let arr2 = [4, 5, 5, 6];
+
+        //filter返回是true的值
+        // let result = [...new Set(arr)].filter(item => new Set(arr2).has(item));
+        // console.log(result);
+
+        // 3.并集
+        // let union = [...new Set([...arr, ...arr2])];
+
+        // 4.补集
+        let diff = [...new Set(arr)].filter(item => !(new Set(arr2).has(item)));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

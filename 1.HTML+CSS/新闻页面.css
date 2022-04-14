@@ -1,0 +1,42 @@
+body {
+    /*font：文字样式(斜体，意体) 字体粗细 字体大小/行高 字体 */
+    font: 16px/28px 'Microsoft YaHei';
+}
+h1 {
+    /* 文字不加粗 */
+    font-weight: 400;
+    /* 文字水平居中 */
+    text-align: center;
+} 
+/* div盒子的类名 */
+.gray {
+    color: #888888;
+    font-size: 12px;
+    text-align: center;
+}
+/* 取消超链接下划线 */
+a {
+    text-decoration: none;
+}
+/* 该search文本框内容颜色 */
+.search {
+    color:#666666;
+    width: 170px;
+}
+/* 加粗按钮内字粗细 */
+.btn {
+    font-weight: 700;
+}
+p {
+    /* 首行缩进2个字距离 */
+    text-indent: 2em;   
+}
+/* 让图片居中对齐，要将图片类名放在p标签里 */
+.pic {
+    text-align: center;
+}
+/* 页尾字变颜色，缩小 */
+.footer {
+    color: #888888;
+    font-size: 12px;
+}

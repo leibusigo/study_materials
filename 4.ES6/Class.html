@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <script>
+        // ES5中构造函数写法
+        // function Point(x, y) {
+        //     this.x = x;
+        //     this.y = y;
+        // }
+
+        // Point.prototype.toString = function () {
+        //     return '(' + this.x + ', ' + this.y + ')';
+        // };
+
+        // var p = new Point(1, 2);
+
+        // ES6 class创建构造函数
+        class Point {
+            // 必须存在的构造方法
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            // 不能像Function一样写成toString: toString()
+            toString() {
+                return '(' + this.x + ', ' + this.y + ')';
+            }
+        }
+
+        // ES5class类继承
+        // function ColorPoint(x, y, color) {
+        //     Point.call(this, x, y);
+        //     this.color = color;
+        // }
+        // 设置子级构造函数的原型
+        // ColorPoint.prototype = new Point;
+        // ColorPoint.prototype.constructor = ColorPoint;
+
+        // ColorPoint.prototype.toString = function () {
+        //     return this.color + ' ' + this.toString(); // 调用父类的toString()
+        // }
+
+        // const binaHua = new ColorPoint(1, 2, 'green');
+        // console.log(binaHua);
+
+
+        // ES6class类的继承
+        class ColorPoint extends Point {
+            constructor(x, y, color) {
+                super(x, y); // 调用父类的constructor(x, y)
+                this.color = color;
+            }
+
+            // get让输出变成构造函数这个方法的返回值
+            get toString() {
+                return this.color + ' ' + super.toString(); // 调用父类的toString()
+            }
+
+            // set当方法形参被修改时执行方法
+            set fangFa(newVal) {
+                console.log("方法被修改了");
+            }
+        }
+
+        const hello = new ColorPoint(1, 2, "green");
+        console.log(hello.toString);
+        hello.fangFa = 'change';
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

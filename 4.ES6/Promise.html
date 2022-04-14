@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <script>
+        // 实例化Promise对象
+        const promise = new Promise(function (resolve, reject) {
+            // ... some code
+
+            if (true/* 异步操作成功 */) {
+                // 调用resolve方法，promise变成true
+                resolve(value);
+            } else {
+                // 调用reject方法，promise变成false
+                reject(error);
+            }
+
+            // 调用promise对象的then方法，promise为true调用第一个方法，为false调用第二个方法
+            promise.then(function (value) {
+                console.log(value);
+            }, function (reason) {
+                console.error(reason);
+            })
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

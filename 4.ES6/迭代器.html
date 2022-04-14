@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+    <script>
+        const xiyou = ['唐僧', '孙悟空', '猪八戒', '沙僧'];
+
+        // 使用for...of遍历数组
+        for (let v of xiyou) {
+            console.log(v);
+        }
+        console.log(xiyou);
+
+        // 数组自带Symbol.iterator接口
+        // 调用对象的next方法
+        let iterator = xiyou[Symbol.iterator]();
+        console.log(iterator.next());
+
+        // 自己做一个迭代器
+        var it = makeIterator(['a', 'b']);
+
+        it.next() // { value: "a", done: false }
+        it.next() // { value: "b", done: false }
+        it.next() // { value: undefined, done: true }
+
+        function makeIterator(array) {
+            var nextIndex = 0;
+            return {
+                next: function () {
+                    return nextIndex < array.length ?
+                        { value: array[nextIndex++], done: false } :
+                        { value: undefined, done: true };
+                }
+            };
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

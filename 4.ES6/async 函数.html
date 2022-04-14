@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async函数</title>
+    <script>
+        // node.js的require模块
+        const fs = require('fs');
+
+        const readFile = function (fileName) {
+            return new Promise(function (resolve, reject) {
+                fs.readFile(fileName, function (error, data) {
+                    if (error) return reject(error);
+                    resolve(data);
+                });
+            });
+        };
+
+        // 生成器
+        // const gen = function* () {
+        //     const f1 = yield readFile('/etc/fstab');
+        //     const f2 = yield readFile('/etc/shells');
+        //     console.log(f1.toString());
+        //     console.log(f2.toString());
+        // };
+
+        // async函数
+        const asyncReadFile = async function () {
+            const f1 = await readFile('/etc/fstab');
+            const f2 = await readFile('/etc/shells');
+            console.log(f1.toString());
+            console.log(f2.toString());
+        };
+
+        // await命令后面的 Promise 对象如果变为reject状态，
+        // 则reject的参数会被catch方法的回调函数接收到。
+        async function f() {
+            await Promise.reject('出错了');
+        }
+
+        f()
+            .then(v => console.log(v))
+            .catch(e => console.log(e));
+        // 出错了
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

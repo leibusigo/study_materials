@@ -1,0 +1,38 @@
+body {
+    width: 100px;
+    height: 100px;
+    div {
+        color: red;
+    }
+}
+
+// 变量的使用 
+@a:100px;
+@c:box6;
+
+.box5 {
+    width: @a;
+}
+
+.@{c}{
+    width: @a;
+    color:red;
+    background-color: $color;
+    &:hover {
+        background-color: blue;
+    }
+}
+
+.box7:extend(.box5) {
+    height: @a;
+}
+
+.box8(@d) {
+    .box5();
+    height: @d;
+}
+
+.box9 {
+    .box8(100px);
+}
+
