@@ -129,7 +129,45 @@ git branch -b 分支名
    `git checkout --track 远程跟踪分支名`
 3. 将一个已经存在的本地分支 改成 一个跟踪分支
    `git branch -u 远程跟踪分支名`
-
+   
+   
+### 创建一个分支到合并的常规流程
+```bash
+（master）git status # 看主干上是否有未提交、未暂存的、未推上去的文件
+（master）git pull # 拉下来最新的文件
+（master）git checkout -b xiayifan # 创建本地xiayifan分支并切换到分支上
+git branch xiayifan # 创建分支 
+git checkout xiayifan # 切换分支
+（xiayifan）git push -u origin xiayifan # 创建远程xiayifan分支，并让本地分支跟踪远程分支
+# 完成分支项目后
+（xiayifan）git add .; git commit -m "注释统一中文" ;git push
+（xiayifan）git checkout master # 切换到主分支
+（master）git pull # 将主分支最新的内容拉下来
+（master）git merge xiayifan # 将主分支和xiayifan分支合并
+# ！！！如果有冲突，修改冲突
+（master）重新git add .; git commit -m "注释"
+# 如果没有冲突，或已经解决完冲突并提交（没有冲突要不要commit忘了，git status检查一下）
+（master）？git commit -m "注释"；git push
+# 如果你不需要分支了
+（master）git branch -d xiayifan #删除本地分支
+（master）git push origin --delete xiayifan #删除远程分支
+```
+### 其它常用指令
+```bash
+# 查看整个项目分支
+git log --oneline --decorate --graph --all
+# 可以设置别名，如将上面指令改成git lol
+git config --global alias.lol "log --oneline --decorate --graph --all"
+# 查看所有远程分支
+git branch -a
+# 查看所有本地分支
+git branch -v
+# 查看所有本地分支是否绑定了远程分支
+git branch -vv
+# 如果没绑定远程分支，手动绑定远程分支
+git branch -u 远程分支名
+```
+***
 ```bash
 # 为远程仓库配置别名&用户信息
 git remote add 别名 URL
